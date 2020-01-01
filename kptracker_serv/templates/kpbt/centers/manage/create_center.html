@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}<title>Kingpin Bowling Tracker - Create Bowling Center</title>{% endblock %}
+
+{% block page_content %}
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+    <header>
+	  <h2 class="form-head mb-3">Create Bowling Center</h2>
+    </header>    
+	<form action="create" method="post">
+		{% csrf_token %}
+		{{ center_form.as_p }}
+        {{ address_form.as_p }}
+		<button type="submit" class="btn btn-univ">Create Bowling Center</button>
+	</form>
+        </div>
+        </div>
+        </div>    
+{% endblock %}

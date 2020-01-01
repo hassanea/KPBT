@@ -1,0 +1,21 @@
+{% extends 'index.html' %} {% load static %}
+
+{% block title %}<title>Kingpin Bowling Tracker - Update Profile</title>{% endblock %}
+
+{% block page_content %}
+ <div class="container-fluid">  
+ <div class="row"> 
+ <div class="col-md-12">
+    <header>
+	<h2 class="form-head">Update Profile</h2>
+    </header>        
+	<p class="lead text-white">Enter the information below to update your profile.</p>
+	<form method="post">
+		{% csrf_token %}
+		{{ profile_form.as_p }}
+		<button type="submit" class="btn btn-univ"> Update Profile </button>
+	</form>
+     </div> 
+     </div> 
+     </div> 
+{% endblock %}

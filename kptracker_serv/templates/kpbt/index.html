@@ -1,0 +1,202 @@
+{% extends "base.html" %} {% load static %} 
+{% block content %}
+ <body>
+  <!--- Jquery-->   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+    <a href="#mainContent" class="skip-link sr-only sr-only-focusable underline" title="Skip to main content" aria-label="Skip to main content">Skip to main content</a>
+    <nav class="navbar navbar-expand-md nav-bg mb-4 navbar-light" aria-label="Navigation">
+  <a class="navbar-brand" href="{% url 'index' %}" aria-label="Kingpin Bowling Tracker">
+   <img src="{% static 'images/Kingpin.png' %}" alt="Kingpin's logo" class="logo zoom">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Navbar toggle">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      
+    <ul class="navbar-nav nav">
+      <li class="nav-item">
+          {% if request.user.is_authenticated %}
+            <a class="nav-link" href="{% url 'view-profile-by-username' request.user.username %}">Home</a>
+          {% endif %}
+          {% if request.user.is_anonymous %}
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          {% endif %}
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="{% url 'center-home' %}" id="navbardrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Centers
+        </a>
+      <div class="dropdown-menu" aria-labelledby="navbardrop">
+        <a class="dropdown-item" href="{% url 'center-home' %}">Centers Home</a>
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+            <a class="dropdown-item" href="{% url 'create-bowling-center' %}">Create Center</a>
+            {% endif %}
+            {% if request.user.userprofile.is_center_manager %}
+                <a class="dropdown-item" href="{% url 'center-management-home' request.user.center_managed.name %}"> Manage Center</a>
+            {% endif %}
+        {% endif %}
+        <a class="dropdown-item" href="{% url 'center_locations' %}">Locations</a>  
+      </div>    
+      </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="{% url 'league-home' %}" id="navbardrop2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Leagues
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbardrop2">
+        <a class="dropdown-item" href="{% url 'league-home' %}">Leagues Home</a>
+        {% if user.is_authenticated %}
+            {% if user.userprofile.is_center_manager %}
+            <a class="dropdown-item" href="{% url 'create-league' user.center_managed.name %}" >Create League</a>
+            {% endif %}
+        {% endif %}
+      </div>    
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="{% url 'team-home' %}" id="navbardrop3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Teams
+        </a>
+            <div class="dropdown-menu" aria-labelledby="navbardrop3">
+            <a class="dropdown-item" href="{% url 'team-home' %}">Teams Home</a>
+            </div>    
+    </li>  
+   
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="{% url 'team-home' %}" id="navbardrop4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        About
+        </a>
+            <div class="dropdown-menu" aria-labelledby="navbardrop4">
+                <a class="dropdown-item" href="{% url 'about' %}">About Us</a>
+                <a class="dropdown-item" href="{% url 'faqs' %}">FAQs</a>
+            </div>    
+    </li>
+
+  <!-- <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">About Us</a>
+   </li>
+        
+   <li class="nav-item">
+        <a class="nav-link" href="{% url 'faqs' %}">FAQs</a>
+   </li>  -->      
+
+   <!-- <li class="nav-item">
+        <a class="nav-link" href="">Link 4</a>
+    </li> 
+   <li class="nav-item">
+        <a class="nav-link" href="">Link 5</a>
+   </li>
+   <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="" id="navbardrop3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Link 6
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbardrop3">
+        <a class="dropdown-item" href="">link 1</a>
+        <a class="dropdown-item" href="">link 2</a>
+        <a class="dropdown-item" href="">link 3</a>
+      </div>    
+    </li> -->
+
+    </ul>
+      
+       <ul class="nav navbar-nav ml-auto">
+         <li class="nav-item dropdown" title="KPBT User Account Profile" data-toggle="tooltip" data-placement="bottom">
+          <a class="nav-link dropdown-toggle" href="" id="navbardrop5" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="User Account Profile">
+        <i class="fas fa-user-circle fa-2x"></i>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbardrop5">                
+    <h5 class="dropdown-header text-center underline">Account info</h5>
+                {% if request.user.is_authenticated %}
+                <p>Logged in as: <mark>{{ user.get_username }}</mark></p>
+                <a class="text-center d-block mb-2 dropDown-link" href="{% url 'view-profile-by-username' request.user.username %}" data-toggle="tooltip" data-placement="top" title="View Profile"><span class="mr-1"><i class="fas fa-user-circle"></i></span> View Profile</a>
+                <a class="text-center d-block mb-2 dropDown-link" href="{% url 'update-profile-by-username' request.user.username %}" data-toggle="tooltip" data-placement="top" title="Update Profile"><span class="mr-1"><i class="fas fa-user-edit"></i></span> Update Profile</a>
+                {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                <a href="{% url 'admin:index' %}" class="text-center d-block mb-2 dropDown-link" data-toggle="tooltip" data-placement="top" title="Admin page"><span class="mr-1"><i class="fas fa-user-cog"></i></span> Admin page</a>
+                {% endif %}
+                {% endif %}   
+                <a href="{% url 'password_reset' %}" class="text-center d-block mb-2 dropDown-link" data-toggle="tooltip" data-placement="top" title="Reset Password"><span class="mr-1"><i class="fas fa-lock"></i></span> Reset Password</a>
+                <a href="{% url 'logout' %}?next={% url 'login' %}" class="text-center d-block mb-2 dropDown-link" data-toggle="tooltip" data-placement="top" title="Logout"><span class="mr-1"><i class="fas fa-sign-out-alt"></i></span> Logout</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="text-center d-block mb-2 dropDown-link">Please login to continue.</a>
+                {% endif %}
+          
+      </div>    
+    </li> 
+           
+        <li class="grow"><a class="nav-link" href="{% url 'login' %}" title="Login" data-toggle="tooltip" data-placement="bottom" aria-label="Login"><i class="fas fa-sign-in-alt fa-2x"></i></a></li>
+        <li class="grow"><a class="nav-link" href="{% url 'register' %}" title="Register" data-toggle="tooltip" data-placement="bottom" aria-label="Register"><i class="fas fa-bowling-ball fa-2x"></i></a></li>
+      </ul>
+      
+
+      
+  </div>  
+</nav>
+    
+<main id="mainContent" tabindex="-1">
+   <section>
+	<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+      <h1 class="text-center mainhead font-weight-bolder margin-head text-uppercase">Kingpin</h1>
+          <hr class="style15">          
+      </div>
+    </div>
+  </div>
+    </section>   
+       <section>
+        <div class="pageContent bg-trans border-style m-4 p-3 fade-in one">
+            
+        
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+        {% endfor %}
+            
+        {% block page_content %}
+        <div class="container-fluid">
+          <div class="row">
+          <div class="col-md-12">
+         
+              <p id="kpmission" class="text-white text-uppercase"><span class="underline">B</span>owling to perfection<span class="ml-2">...</span></p>
+              <p class="speech d-block mx-auto">Kingpin is a user-friendly app that allows for easy bowling center and league management. Kingpin will allow users to connect with bowling centers to view the leagues that they are within to see stats and recent scores. Bowling Centers can upload data, select league secretaries and maintain league quality.</p>
+                <figure>
+                 <img src="{% static 'images/Kingpin-character.png' %}" alt="Kingpin character" class="mx-auto d-block img-fluid">
+                 <figcaption class="text-center text-white">-KP</figcaption>      
+                </figure>      
+              </div>
+              
+              <div class="col-md-6"><p class="speech-2 d-block mx-auto">Check your weekly standings, team rosters, and all bowling data! Champion your game! <br> <i class="fas fa-trophy fa-2x"></i></p></div>
+              <div class="col-md-6"><p class="speech-2 d-block mx-auto">Free and easy-to-use bowling tracker! Roll with the Pros!!! <br> KPBT awaits you <span class="ml-1">...</span> <br> <i class="fas fa-crown fa-2x"></i></p></div>
+              
+              </div>
+              </div>
+        {% endblock %}
+    </div>
+    </section>       
+    </main>        
+      <footer class="foot-bg" id="footer">
+        
+            <div class="container-fluid">
+            <div class="row">
+
+            <div class="col-md-12">
+                <div class="text-center font-weight-bolder">&copy; 2019 Kingpin</div>
+            </div>
+
+      </div>
+      </div>
+      </footer>
+  <!-- Popper.js-->    
+  <script src="{% static 'js/Popper.js' %}"></script>
+  <!-- Bootstrap minified JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- app.js -->    
+  <script src="{% static 'js/app.js' %}"></script>
+</body>
+{% endblock %}

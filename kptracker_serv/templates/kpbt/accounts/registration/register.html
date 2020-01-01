@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Kingpin Bowling Tracker - Register</title>{% endblock %}
+
+{% block content %}
+<body class="bg-bowl">
+<main id="mainContent" tabindex="-1">
+<div class="container-fluid">  
+ <div class="row"> 
+ <div class="col-md-12">
+    <header>
+	<h1 class="mainhead text-uppercase">Register</h1>
+    <hr class="style15">
+    </header>    
+     <ul class="breadcrumb">
+      <li class="breadcrumb-item font-weight-bolder"><a href="{% url 'index' %}"><i class="fas fa-home fa" title="Home" data-toggle="tooltip" data-placement="bottom"></i></a></li>     
+      <li class="breadcrumb-item font-weight-bolder"><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt fa" title="Login" data-toggle="tooltip" data-placement="bottom"></i></a></li>
+      <li class="breadcrumb-item active font-weight-bolder">Register</li>
+     </ul>
+     
+     <div class="card-regist bg-trans text-dodgerblue rounded">
+	<form method="post" class="mt-3 mb-3 ml-2 mr-2 p-1">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="btn btn-univ mx-auto d-block">Sign Up</button>
+	</form>
+    </div>
+    
+     </div> 
+     </div>
+    </div>  
+    
+    </main>   
+    
+</body>    
+{% endblock %}
+
+

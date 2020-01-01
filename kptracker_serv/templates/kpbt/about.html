@@ -1,0 +1,28 @@
+{% extends 'index.html' %} {% load static %}
+
+{% block title %}<title>Kingpin Bowling Tracker - About</title>{% endblock %}
+
+{% block page_content%}
+<div class="container-fluid">  
+<div class="row"> 
+<div class="col-md-12">
+<header>  
+  <h1 class="text-white" id="about-head"> Kingpin Bowling Tracker </h1>
+</header>      
+<img src="{% static 'images/Kingpin-character.png' %}" alt="Kingpin character" class="img-fluid m-1">
+<p class="lead text-Special"> Our mission is to develop the “Kingpin Bowling Tracker” application to enable present bowling leagues to create and manage leagues, and to provide individual bowlers detailed history and statistics for analyzing their game over the course of their league seasons.</p>    
+<p class="lead text-Special"> Thank you for using the Kingpin Bowling Tracker App.</p>
+<h4 class="underline text-white">Authors:</h4>
+<ul class="text-white">
+    <li>Darius Grasseschi</li>
+    <li>Evan Hassan</li>
+    <li>Jonathan Lacoursiere</li>
+    <li>Ariana Lee</li>
+    <li>Maria Medina</li>
+    <li>Spencer Solys</li>
+    <li>Cody Trombley</li>
+</ul>
+  </div> 
+  </div> 
+  </div>  
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% load static %}
+
+{% block title %}<title>Kingpin Bowling Tracker - Login</title>{% endblock %}
+
+{% block content %}
+<body class="bg-bowl">
+<main id="mainContent" tabindex="-1">    
+<div class="container-fluid mx-auto d-block" align="center">
+  <div class="row">
+    <div class="col-md-12">
+        <header>
+            <h1 class="mainhead font-weight-bolder text-center text-uppercase mt-5">Kingpin</h1>
+        </header>
+            <div class="card-login text-white bg-trans" id="login">
+        <img src="{% static 'images/icons/bowling.svg' %}" alt="Pins with bowling ball" width="200" height="200" class="mx-auto d-block login-icon login-bowl-ball">
+{% if form.errors %}
+	<p class="lead">Your username and password did not match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+	{% if user.is_authenticated %}
+		<p class="lead">Access permission for this page denied.</p>
+	{% else %}
+		<p class="lead">Please log in to view this page.</p>
+	{% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+
+<table class="mb-3">
+    <div class="form-group">
+	<tr>
+		<td><div class="username-row row">{{ form.username }}</div></td>
+	</tr>
+     </div>    
+    
+	<div class="form-group">
+	<tr>
+        <td><div class="password-row row">{{ form.password }}</div></td>
+	</tr>
+    </div>    
+</table>
+
+<input type="submit" value="Login" class="btn-login mb-4" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+<p class="login-para"><a href="{% url 'password_reset' %}" class="link-login"><span class="mr-2"><i class="fas fa-lock"></i></span>Forgot password&#63;</a></p>
+<p class="login-para"><a href="{% url 'register' %}" class="link-login">Register&#33;</a></p>
+         <div class="card-footer"><footer><span class="text-center">&copy; 2019 Kingpin</span></footer></div>
+        </div>
+            
+           
+      
+        
+        
+        
+        
+        
+        
+        
+        </div>     
+       </div>      
+      </div>
+    </main>  
+      {% load static %}
+  <!-- jQuery -->    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Popper.js-->    
+  <script src="{% static 'js/Popper.js' %}"></script>
+   <!-- Bootstrap minified JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Velocity.js Animations-->    
+  <script src="https://cdn.jsdelivr.net/velocity/1.2.2/velocity.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/velocity/1.2.2/velocity.ui.min.js"></script>      
+  <!-- app.js -->    
+  <script src="{% static 'js/Velocity_animations.js' %}"></script>
+    
+    
+</body>
+{% endblock %}
+
+
+

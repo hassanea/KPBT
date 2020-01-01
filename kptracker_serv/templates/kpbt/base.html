@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>Kingpin Bowling Tracker</title>{% endblock %}    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta name="author" content="Darius Grasseschi, Evan Hassan, Jonathan Lacoursiere, Ariana Lee, Maria Medina, Spenser Solys and Cody Trombley">
+  <meta name="description" content="Kingpin - World's Best bowling tracking app for bowlers, centers, leagues, and teams on the web">
+  <meta name="keywords" content="Bowling, Bowling tracker webapp, Bowlers, Bowling leagues, Bowling centers, Bowling teams, Bowler statistics">
+  <meta name="theme-color" content="#000000">    
+  <!-- Bootstrap 4 CSS -->    
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- FontAwesome Icons and CSS-->   
+  <script src="https://kit.fontawesome.com/8c89b82d38.js" crossorigin="anonymous"></script>
+  <!-- Google Fonts - Arimo -->
+  <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
+  <!-- Google Fonts - Abril Fatface -->    
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+  <!-- styles CSS file -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <!-- Favicon Icon -->    
+  <link rel="shortcut icon" href="{% static 'images/icons/Kingpin.ico' %}"> 
+  <!-- apple-touch Icon--> 
+  <link rel="apple-touch-icon" href="{% static 'images/icons/Kingpin.png' %}">
+  <!-- PWA - Manifest json file-->    
+  <link rel="manifest" href="{% static 'js/manifest.json' %}">      
+</head>
+    
+{% block content %}
+{% endblock %}
+</html>

@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block page_content %}
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12">
+
+<header>
+  <h2 class="form-head mb-4"> Weekly Schedule</h2>
+</header> 
+    
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item font-weight-bolder"><a href="{% url 'view-center-league-by-name' league.bowling_center.name league.name %}"><i class="fas fa-arrow-left" title="Back to Leagues"></i></a></li>
+    
+      <li class="breadcrumb-item active font-weight-bolder">Schedule</li>
+</ul> 
+
+<div class="table-responsive">    
+<table class="table table-striped table-bordered table-hover">
+    <tr class="text-center font-weight-bolder table-danger">
+      <th>Week Number</th> <th>Pairing</th>
+    </tr>
+    <tbody class="table-info">
+    {% for pairing in schedule %}
+
+    <tr class="text-center font-weight-bolder table-txt-lnk-style">
+        <td class="table-danger"> Week Number &#35;{{forloop.counter}}:  </td><td class="table-info"> {{ pairing }} </td> <td class="table-info"><a href="{% url 'update-pairing-by-week' league.bowling_center.name league.name forloop.counter %}" class="table-txt-lnk-style"> Update</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>    
+</table>
+</div>    
+</div>
+</div>
+</div>    
+{% endblock %}

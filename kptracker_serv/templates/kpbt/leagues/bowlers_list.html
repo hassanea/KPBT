@@ -1,0 +1,37 @@
+<div class="table-responsive">    
+<table id="bowlertable" class="table table-striped table-bordered table-hover">
+    <thead class="table-danger">
+        <tr class="text-center font-weight-bolder">
+            <th>Name</th><th>League Average</th><th>Games Bowled</th><th>High Scratch Game</th><th>High Handicap Game</th><th>High Scratch Series</th><th>High Handicap Series</th><th>Total Scratch Pins</th><th>Total Handicap Pins</th>
+        </tr>
+    </thead>
+    <tbody class="table-info">
+    {% for bowler in bowlers %} 
+        <tr class="text-center font-weight-bolder table-txt-lnk-style">
+            <td><a href="{% url 'view-league-bowler' league.bowling_center.name league.name bowler.id %}" class="table-txt-lnk-style">{{bowler.bowler.first_name}} {{bowler.bowler.last_name}} </a></td><td>{{bowler.league_average}}</td><td>{{bowler.games_bowled}}</td><td>{{bowler.league_high_scratch_game}}</td><td>{{bowler.league_high_handicap_game}}</td><td>{{bowler.league_high_scratch_series}}</td><td>{{bowler.league_high_handicap_series}}</td><td>{{bowler.league_total_scratch}}</td><td>{{bowler.league_total_handicap}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>  
+    
+<div class="text-white mb-2">
+
+    <span class="current">
+        Page {{ bowlers.number }} of {{ bowlers.paginator.num_pages }}
+    </span>
+    
+</div>
+
+
+  <ul class="pagination justify-content-center">
+    {% if bowlers.has_previous %}  
+    <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+    <li class="page-item"><a class="page-link" href="?page= {{ bowlers.previous_page_number }}">Previous</a></li>
+    {% endif %}  
+      
+    {% if bowlers.has_next %} 
+    <li class="page-item"><a class="page-link" href="?page= {{ bowlers.next_page_number }}">Next</a></li>
+    <li class="page-item"><a class="page-link" href="?page= {{ bowlers.paginator.num_pages }}">Last</a></li>
+    {% endif %}
+  </ul>

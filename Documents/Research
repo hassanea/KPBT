@@ -1,0 +1,57 @@
+                                        GOOD WEB PROGRAMMING PRACTICES 
+•	Understand the big picture 
+  Understand what you want the web application to do, what’s its purpose, and why is it being created. 
+•	Do not skip diagram creation 
+  It will help you better understand how you want to tackle every task and identify priorities. 
+•	Start with User experience 
+  Creating an interesting appearance is greatly important when creating a web application. Research and design should take up about 70% of the project. The first thing that users look at is appearance; no body wants to use an application that looks boring and complex to use. It needs to be a user-friendly application. Once the design is determined, the development will be a lot easier. 
+•	Write smart code 
+  Do not write complicated unnecessary code. Every line of code must have a purpose (solve a problem or provide a feature). Unnecessary code leads to bugs. Write clean, purposeful, easy-to-read code. 
+•	Pick a good framework 
+  Creating an application is like building a house. If you’re building a house, would you rather start with a bare piece of land, or a nearly built house where you just must focus on final details? 
+  That’s when you need to pick a good framework that provides a good structure in which you can build instead of starting from scratch. 
+•	Consider the future 
+  The application you’re building today, will inevitable be outdated in a few years. Therefore, writing updatable code is very important. Write comments on your code, that way, in the future when you need to update your application, you don’t need to start from scratch, you will be able to change small details. 
+•	Write testable code 
+  Some code is written in a way that is hard or even impossible to test. Make sure your code is testable. Testing practices are important for a serious developer. 
+•	Don’t stop there
+  The more prepared and experienced you are, the less bugs will arise in your code. You will be able to develop without major issues and be more prepared when bugs arise. Read more programming book, do more research, get better at it. 
+  
+Source: https://www.codingdojo.com/blog/web-development-best-practices
+                                                      
+                                                      
+                                                      
+                                                      ETHICAL ISSUES
+• Copy right issues 
+    o	Who owns the website you’ve made? 
+    o	You or the company you work for?
+    o	You or your client?
+•	Piracy 
+    o	Using images, audio, film, etc. without legal permissions 
+•	Scams 
+    o	A way of attempting to get information from users such us names, passwords, usernames, etc. 
+•	Privacy 
+    o	Colleting user data without being aware of certain principles such as: 
+      	Notice: disclose information practices before collecting information 
+      	Choice: consumers must be given options as of how their personal can be used and with what purposes 
+      	Access: consumers should be able to view and contests the accuracy of their personal information being displayed. 
+      	Security: data collectors must make sure the information they are collecting is secured from unauthorized users. 
+
+Source: https://paulstevensdesign.wordpress.com/2012/01/02/legal-and-ethical-issues-in-web-design/
+
+
+DATA PROTECTION
+
+Data protection consists of two strategies 
+•	Data availability 
+  o	Data availability makes sure users have access to the data they need even if the data is lost or damaged. 
+•	Data management 
+  o	There are two key areas involved in data management 
+    	Data lifecycle management 
+        •	The process of automating the movement of critical data to online and offline storage. 
+    	Information lifecycle management 
+        •	A comprehensive strategy for valuing, cataloging and protecting information assets from application and user errors, malware and virus attacks, machine failure or facility outages and disruptions. 
+Source: https://searchdatabackup.techtarget.com/definition/data-protection
+
+Why data protection? 
+•	Data protection seeks to protect people’s data by imposing rules on the way in which companies and governments use data
