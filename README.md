@@ -1,14 +1,19 @@
 # Kingpin Bowling Tracker (KPBT) - Fall 2019 Senior Project
 ## Project Overview
 
-The purpose of the **Kingpin** project was to create an application to enable present bowling leagues to create and manage leagues, and to provide individual bowlers detailed history and statistics for analyzing their game over the course of their league seasons.
+The purpose of the **Kingpin** project was to create an application to enable present bowling leagues to create and manage leagues, and to provide individual bowlers detailed history and statistics for analyzing their game over the course of their league seasons. 
 
-![KPBT's Homepage](https://github.com/cjtrombley/KPTracker/blob/master/Documents/UI_Screenshots/Home-Page.png)
+🏆 Awarded 1st place in Senior Capstone competition !!! 🏆
+
+![KPBT's Homepage](https://github.com/hassanea/KPBT/blob/master/Documents/UI_Screenshots/Home-Page.png)
+
+## Hosted Project
+  * TBD
 
 ## Running the Project
 
-1.  Clone the project from https://github.com/cjtrombley/KPTracker
-      * Use `git clone` https://github.com/cjtrombley/KPTracker    
+1.  Clone the project from https://github.com/hassanea/KPBT
+      * Use `git clone` https://github.com/hassanea/KPBT   
 2.  Navigate to the directory where KPTracker/kptracker_serv/ folder is located.
 3.  In the terminal, change directory `cd` into the KPTracker/kptracker_serv/ folder.
 4.  Next, use the commands below depending on your OS and apply the migrate command.
