@@ -20,7 +20,7 @@ django-heroku==0.3.1
 django-location-field==2.1.0
 django-rest-framework==0.1.0
 django-treebeard==4.3
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 docker==4.3.1
 docker-compose==1.25.5
 dockerpty==0.4.1
